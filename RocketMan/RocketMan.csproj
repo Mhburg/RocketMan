@@ -52,11 +52,14 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Cacheable.cs" />
+    <Compile Include="src\HarmonyPatches\GridUtility_Patch.cs" />
     <Compile Include="src\HarmonyPatches\HarmonyUtility.cs" />
     <Compile Include="src\HarmonyPatches\StatExtension_Patch.cs" />
     <Compile Include="src\Model\AbstractStatRequestModel.cs" />
+    <Compile Include="src\Model\GridTempModel.cs" />
     <Compile Include="src\Model\StatRequestModel.cs" />
     <Compile Include="src\Model\StatRequestModelComparer.cs" />
+    <Compile Include="src\Utilities\HashUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

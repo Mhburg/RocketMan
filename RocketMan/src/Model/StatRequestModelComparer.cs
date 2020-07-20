@@ -43,14 +43,14 @@ namespace RocketMan
             unchecked
             {
                 int hash;
-                hash = HashOne(obj.Stat.shortHash);
-                hash = HashOne(statRequest.Thing?.thingIDNumber ?? 0, hash);
-                hash = HashOne(statRequest.StuffDef?.GetHashCode() ?? 0, hash);
-                hash = HashOne((int)statRequest.QualityCategory, hash);
-                hash = HashOne(statRequest.Def?.GetHashCode() ?? 0, hash);
-                hash = HashOne(statRequest.Faction?.loadID ?? 0, hash);
-                hash = HashOne(statRequest.Pawn?.thingIDNumber ?? 0, hash);
-                hash = HashOne(obj.ApplyPostProcess ? 1 : 0, hash);
+                hash = HashUtility.HashOne(obj.Stat.shortHash);
+                hash = HashUtility.HashOne(statRequest.Thing?.thingIDNumber ?? 0, hash);
+                hash = HashUtility.HashOne(statRequest.StuffDef?.GetHashCode() ?? 0, hash);
+                hash = HashUtility.HashOne((int)statRequest.QualityCategory, hash);
+                hash = HashUtility.HashOne(statRequest.Def?.GetHashCode() ?? 0, hash);
+                hash = HashUtility.HashOne(statRequest.Faction?.loadID ?? 0, hash);
+                hash = HashUtility.HashOne(statRequest.Pawn?.thingIDNumber ?? 0, hash);
+                hash = HashUtility.HashOne(obj.ApplyPostProcess ? 1 : 0, hash);
 
                 return hash;
             }
@@ -63,14 +63,7 @@ namespace RocketMan
 
         public override int GetHashCode()
         {
-            return typeof(StatRequestModelComparer).Name.GetHashCode();
+            return nameof(StatRequestModelComparer).GetHashCode();
         }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static int HashOne(int numberToHash, int previousHash = 17)
-        {
-            return previousHash * 7919 + numberToHash;
-        }
-
     }
 }
